@@ -16,7 +16,12 @@ import 'package:maged_soft_test/User_Module/Presentation/screens/user/help/help.
 
 void main() async {
   RemoteDataDioHelper.init();
-
+  // BaseRemoteDataSource baseRemoteDataSource = RemoteDataDioHelper();
+  // BaseVerifyUserRepo baseVerifyUserRepo = VerifyUserRepo(baseRemoteDataSource);
+  // final userResponce = PostPhoneNumberAndUserName(baseVerifyUserRepo)
+  //     .useCaseSendPhoneAndUserName(
+  //         userInfo: User(phoneNumber: '01111111111', userName: 'Ali Khaled'));
+  // print('the responce is $userResponce');
   runApp(const MyApp());
 }
 

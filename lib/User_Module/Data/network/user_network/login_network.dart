@@ -12,3 +12,14 @@ class LoginErrorMessegeNetwork extends UserResponce {
     );
   }
 }
+
+class LoginErrorLaocalDbMessegeNetwork extends UserResponce {
+  LoginErrorLaocalDbMessegeNetwork({super.messege, super.statusCode});
+  factory LoginErrorLaocalDbMessegeNetwork.fromJson(
+      Map<String, dynamic> error) {
+    return LoginErrorLaocalDbMessegeNetwork(
+      statusCode: error[AppConstants.staus],
+      messege: error[AppConstants.message],
+    );
+  }
+}

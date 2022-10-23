@@ -1,3 +1,5 @@
+import 'package:dartz/dartz.dart';
+import 'package:maged_soft_test/User_Module/Data/network/failur/failur.dart';
 import 'package:maged_soft_test/User_Module/Domain/entities/otp_responce.dart';
 
 import 'package:maged_soft_test/User_Module/Domain/entities/user.dart';
@@ -14,7 +16,7 @@ class GetOtpCodeResponce {
  * the userName and userPhone will cpme from the presentation layed
  */
 
-  Future<OtpResponce> useCaseGetOtpResponce(User? otpResponce) {
+  Future<Either<Failur, OtpResponce>> useCaseGetOtpResponce(User? otpResponce) {
     return verifyUser.getOtpResponce(otpResponce: otpResponce);
   }
 }

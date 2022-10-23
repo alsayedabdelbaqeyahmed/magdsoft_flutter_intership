@@ -6,6 +6,7 @@ import 'package:maged_soft_test/User_Module/Data/models/otp_responce_model.dart'
 import 'package:maged_soft_test/User_Module/Data/models/responce_modle.dart';
 import 'package:maged_soft_test/User_Module/Data/network/exception/general_exception.dart';
 import 'package:maged_soft_test/User_Module/Data/network/exception/user_exception.dart';
+import 'package:maged_soft_test/User_Module/Data/network/failur/failur.dart';
 
 import 'package:maged_soft_test/User_Module/Data/network/user_network/login_network.dart';
 
@@ -62,8 +63,8 @@ class RemoteDataDioHelper implements BaseRemoteDataSource {
 
       // print('my name is $name');
 
-    } catch (e) {
-      throw GeneralException(e.toString());
+    } on UserServerException catch (e) {
+      throw ServerFailur(errorMessege: e.loginErrorMessegeNetwork!.messege);
     }
   }
 
@@ -94,8 +95,8 @@ class RemoteDataDioHelper implements BaseRemoteDataSource {
               LoginErrorMessegeNetwork.fromJson(responce.data),
         );
       }
-    } catch (e) {
-      throw GeneralException(e.toString());
+    } on UserServerException catch (e) {
+      throw ServerFailur(errorMessege: e.loginErrorMessegeNetwork!.messege);
     }
   }
 
@@ -121,8 +122,8 @@ class RemoteDataDioHelper implements BaseRemoteDataSource {
               LoginErrorMessegeNetwork.fromJson(responce.data),
         );
       }
-    } catch (e) {
-      throw GeneralException(e.toString());
+    } on UserServerException catch (e) {
+      throw ServerFailur(errorMessege: e.loginErrorMessegeNetwork!.messege);
     }
   }
 }
