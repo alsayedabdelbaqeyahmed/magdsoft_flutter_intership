@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:maged_soft_test/User_Module/Presentation/screens/shared_widget/primary_buttons.dart';
 import 'package:maged_soft_test/User_Module/Presentation/styles/colors.dart';
+import 'package:maged_soft_test/User_Module/Presentation/styles/strings.dart';
 
 class VerifyForm extends StatefulWidget {
   final BoxConstraints? size;
@@ -36,7 +37,7 @@ class _VerifyFormState extends State<VerifyForm> {
           ),
           SizedBox(height: widget.size!.maxHeight * 0.0965),
           PrimaryButton(
-            text: 'Verify',
+            text: AppStrings.resendCode,
             press: () {},
             constrain: widget.size,
             isResend: true,
@@ -47,7 +48,7 @@ class _VerifyFormState extends State<VerifyForm> {
               bottom: widget.size!.maxHeight * 0.0836,
             ),
             child: PrimaryButton(
-              text: 'Verify',
+              text: AppStrings.verify,
               press: () {},
               constrain: widget.size,
               isLogin: true,

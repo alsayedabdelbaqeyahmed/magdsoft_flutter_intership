@@ -5,6 +5,8 @@ import 'package:maged_soft_test/User_Module/Presentation/screens/shared_widget/p
 import 'package:maged_soft_test/User_Module/Presentation/screens/user/help/animated_container.dart';
 
 import 'package:maged_soft_test/User_Module/Presentation/styles/colors.dart';
+import 'package:maged_soft_test/User_Module/Presentation/styles/fonts.dart';
+import 'package:maged_soft_test/User_Module/Presentation/styles/strings.dart';
 
 class HelpScreen extends StatelessWidget {
   const HelpScreen({super.key});
@@ -38,11 +40,10 @@ class HelpScreen extends StatelessWidget {
                         bottom: size.maxHeight * 0.0697,
                       ),
                       child: Text(
-                        'HELP',
-                        style: TextStyle(
+                        AppStrings.help,
+                        style: AppFontStyle.textStyle(
                           color: AppColor.white,
-                          fontSize: size.maxWidth * 0.06976,
-                          fontWeight: FontWeight.w400,
+                          size: size.maxWidth * 0.06976,
                         ),
                       ),
                     ),
@@ -88,7 +89,7 @@ class HelpScreen extends StatelessWidget {
                   padding: EdgeInsetsDirectional.only(
                       bottom: size.maxHeight * 0.0257),
                   child: PrimaryButton(
-                    text: 'Continue',
+                    text: AppStrings.cont,
                     constrain: size,
                     press: () {},
                     isLogin: true,

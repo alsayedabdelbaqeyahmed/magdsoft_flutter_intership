@@ -25,6 +25,7 @@ class VerifyUserRepo implements BaseVerifyUserRepo {
         phone: userInfo!.phoneNumber, name: userInfo.userName);
     // right mean sucess (UserResponce data)
     try {
+      print(result);
       return Right(result);
     } on UserServerException catch (error) {
       // with failure send the error messege to ServerFailure class
@@ -40,6 +41,7 @@ class VerifyUserRepo implements BaseVerifyUserRepo {
     final result = await baseSendVerifyRequest.remoteDataGetOtpResponce(
         phone: otpResponce!.phoneNumber, code: otpResponce.code);
     try {
+      print(result);
       return Right(result);
     } on UserServerException catch (error) {
       return Left(
@@ -52,6 +54,7 @@ class VerifyUserRepo implements BaseVerifyUserRepo {
   Future<Either<Failur, Help>> getHelp() async {
     final result = await baseSendVerifyRequest.remoteDataGetHelp();
     try {
+      print(result);
       return Right(result);
     } on UserServerException catch (error) {
       return Left(

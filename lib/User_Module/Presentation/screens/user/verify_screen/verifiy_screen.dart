@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'package:maged_soft_test/User_Module/Presentation/styles/colors.dart';
 import 'package:maged_soft_test/User_Module/Presentation/screens/user/verify_screen/verify_form.dart';
+import 'package:maged_soft_test/User_Module/Presentation/styles/strings.dart';
 
 class VerifyScreen extends StatelessWidget {
   const VerifyScreen({super.key});
@@ -35,7 +36,7 @@ class VerifyScreen extends StatelessWidget {
               children: [
                 SizedBox(height: size.maxHeight * 0.0665),
                 Text(
-                  'Verify Phone',
+                  AppStrings.verifyPhone,
                   style: TextStyle(
                     color: AppColor.white,
                     fontWeight: FontWeight.w400,

@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:maged_soft_test/User_Module/Presentation/styles/colors.dart';
+import 'package:maged_soft_test/User_Module/Presentation/styles/fonts.dart';
 
 class AnimatedContainerWidget extends StatefulWidget {
   final String? title;
@@ -62,9 +63,9 @@ class _AnimatedContainerWidgetState extends State<AnimatedContainerWidget> {
                   children: [
                     Text(
                       widget.title!,
-                      style: const TextStyle(
-                        color: AppColor.primaryColor,
-                      ),
+                      style: AppFontStyle.textStyle(
+                          color: AppColor.primaryColor,
+                          size: widget.size!.maxHeight * 0.01824),
                     ),
                     IconButton(
                       onPressed: () {
@@ -78,13 +79,10 @@ class _AnimatedContainerWidgetState extends State<AnimatedContainerWidget> {
                 ),
                 Text(
                   widget.content!,
-                  style: TextStyle(
+                  style: AppFontStyle.textStyle(
                     color: AppColor.helpTextColor,
-                    fontWeight: FontWeight.w400,
-                    fontSize: widget.size!.maxWidth * 0.0395,
+                    size: widget.size!.maxWidth * 0.0395,
                   ),
-                  //maxLines: 4,
-                  // overflow: TextOverflow.ellipsis,
                 ),
               ],
             ),

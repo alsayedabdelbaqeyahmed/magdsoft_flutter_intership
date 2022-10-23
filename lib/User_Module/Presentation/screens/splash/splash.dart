@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:maged_soft_test/User_Module/Presentation/screens/user/login_screen/login_screen.dart';
 import 'package:maged_soft_test/User_Module/Presentation/screens/shared_widget/animated_apge.dart';
+import 'package:maged_soft_test/User_Module/Presentation/styles/assets.dart';
 import 'package:maged_soft_test/User_Module/Presentation/styles/colors.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -47,13 +48,13 @@ class _SplashScreenState extends State<SplashScreen> {
         decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
-              'assets/images/splashBack1.png',
+              AppAssets.splashBack,
             ),
             fit: BoxFit.cover,
           ),
         ),
         child: Center(
-          child: Image.asset('assets/images/splashLogo1.png'),
+          child: Image.asset(AppAssets.splashLogo),
         ),
       ),
     );

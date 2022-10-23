@@ -12,4 +12,5 @@ class AppConstants {
   static const String message = 'message';
   static const String account = 'account';
   static const String help = 'help';
+  static const String mainAssetsPath = 'assets/images';
 }

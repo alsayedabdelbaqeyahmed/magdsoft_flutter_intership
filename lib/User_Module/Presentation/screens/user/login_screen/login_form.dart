@@ -2,7 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:maged_soft_test/User_Module/Presentation/screens/shared_widget/primary_buttons.dart';
-import 'package:maged_soft_test/User_Module/Presentation/styles/colors.dart';
+
+import 'package:maged_soft_test/User_Module/Presentation/styles/strings.dart';
 
 class LoginForm extends StatefulWidget {
   final BoxConstraints? constrain;
@@ -22,7 +23,7 @@ class _LoginFormState extends State<LoginForm> {
         children: [
           TextFormField(
             decoration: InputDecoration(
-              labelText: 'Enter Your Full Name',
+              labelText: AppStrings.enterEmail,
               contentPadding: EdgeInsetsDirectional.only(
                   start: widget.constrain!.maxWidth * 0.025),
               border: OutlineInputBorder(
@@ -35,7 +36,7 @@ class _LoginFormState extends State<LoginForm> {
           SizedBox(height: widget.constrain!.maxHeight * 0.018),
           TextFormField(
             decoration: InputDecoration(
-              hintText: 'Enter Your Phone Number',
+              hintText: AppStrings.enterPhone,
               contentPadding: EdgeInsetsDirectional.only(
                   start: widget.constrain!.maxWidth * 0.025),
               border: OutlineInputBorder(

@@ -2,8 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:maged_soft_test/User_Module/Presentation/screens/user/login_screen/login_form.dart';
+import 'package:maged_soft_test/User_Module/Presentation/styles/assets.dart';
 
 import 'package:maged_soft_test/User_Module/Presentation/styles/colors.dart';
+import 'package:maged_soft_test/User_Module/Presentation/styles/strings.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -21,7 +23,7 @@ class LoginScreen extends StatelessWidget {
               children: [
                 SizedBox(
                   child: Image.asset(
-                    'assets/images/city.png',
+                    AppAssets.cityBackground,
                     fit: BoxFit.cover,
                     color: AppColor.primaryColor.withOpacity(0.32),
                     colorBlendMode: BlendMode.color,
@@ -62,7 +64,7 @@ class LoginScreen extends StatelessWidget {
                                     color: AppColor.lineColor,
                                   ),
                                 ),
-                                Text('Or'),
+                                Text(AppStrings.or),
                                 Container(
                                   width: constrain.maxWidth * 0.383,
                                   height: 1,
@@ -82,16 +84,15 @@ class LoginScreen extends StatelessWidget {
                             // ignore: prefer_const_literals_to_create_immutables
                             children: [
                               socislMediaButtons(
-                                  assets: 'assets/images/Google__G__Logo 2.png',
+                                  assets: AppAssets.googleLogo,
                                   size: constrain,
                                   scale: 1.8),
                               SizedBox(width: constrain.maxWidth * 0.106),
                               socislMediaButtons(
-                                  assets: 'assets/images/ios 1.png',
-                                  size: constrain),
+                                  assets: AppAssets.appleLogo, size: constrain),
                               SizedBox(width: constrain.maxWidth * 0.134),
                               socislMediaButtons(
-                                  assets: 'assets/images/f.png',
+                                  assets: AppAssets.facebookLogo,
                                   size: constrain),
                             ],
                           ),
@@ -135,7 +136,7 @@ class LoginScreen extends StatelessWidget {
                           // need to add font family
                           children: [
                             Text(
-                              'Welcome',
+                              AppStrings.welcome,
                               style: TextStyle(
                                 fontSize: constrain.maxWidth * 0.069,
                                 fontWeight: FontWeight.w400,
@@ -176,6 +177,7 @@ class LoginScreen extends StatelessWidget {
         // print('object');
       },
       icon: Container(
+        // ignore: sort_child_properties_last
         child: Image.asset(
           assets!,
           width: 38,
