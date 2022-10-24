@@ -5,8 +5,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:maged_soft_test/Core/shared/constants.dart';
 import 'package:maged_soft_test/Data/resources/local_data_source/cache_helper.dart';
 import 'package:maged_soft_test/Domain/entities/user.dart';
-import 'package:maged_soft_test/Presentation/controller/user_bloc.dart';
-import 'package:maged_soft_test/Presentation/controller/user_state.dart';
+
+import 'package:maged_soft_test/Presentation/controller/user_controller.dart/user_bloc.dart';
+import 'package:maged_soft_test/Presentation/controller/user_controller.dart/user_state.dart';
+
 import 'package:maged_soft_test/Presentation/screens/shared_widget/primary_buttons.dart';
 import 'package:maged_soft_test/Presentation/styles/colors.dart';
 import 'package:maged_soft_test/Presentation/styles/strings.dart';

@@ -13,4 +13,8 @@ class AppAssets {
       '${AppConstants.mainAssetsPath}/city.png';
   static const String productBackgrpund =
       '${AppConstants.mainAssetsPath}/300 2022 2.png';
+  static const String nextScreenSvg = 'assets/svg/nextScreen.svg';
+  static const String favourite = 'assets/svg/favourite.svg';
+  static const String notification = 'assets/svg/notification.svg';
+  static const String settings = 'assets/svg/settings.svg';
 }

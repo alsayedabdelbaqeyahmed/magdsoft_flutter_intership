@@ -2,8 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:maged_soft_test/Presentation/controller/user_bloc.dart';
-import 'package:maged_soft_test/Presentation/controller/user_state.dart';
+
+import 'package:maged_soft_test/Presentation/controller/user_controller.dart/user_bloc.dart';
+import 'package:maged_soft_test/Presentation/controller/user_controller.dart/user_state.dart';
+
 import 'package:maged_soft_test/Presentation/screens/shared_widget/primary_buttons.dart';
 import 'package:maged_soft_test/Presentation/screens/user/help/animated_container.dart';
 

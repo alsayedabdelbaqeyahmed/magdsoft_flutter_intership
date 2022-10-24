@@ -3,9 +3,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:maged_soft_test/Domain/entities/user.dart';
-import 'package:maged_soft_test/Presentation/controller/user_bloc.dart';
-import 'package:maged_soft_test/Presentation/controller/user_state.dart';
+
+import 'package:maged_soft_test/Presentation/controller/user_controller.dart/user_bloc.dart';
+import 'package:maged_soft_test/Presentation/controller/user_controller.dart/user_state.dart';
+
 import 'package:maged_soft_test/Presentation/screens/shared_widget/primary_buttons.dart';
+import 'package:maged_soft_test/Presentation/styles/colors.dart';
 
 import 'package:maged_soft_test/Presentation/styles/strings.dart';
 
@@ -26,41 +29,59 @@ class LoginForm extends StatelessWidget {
             key: _key,
             child: Column(
               children: [
-                TextFormField(
-                  textInputAction: TextInputAction.next,
-                  decoration: InputDecoration(
-                    labelText: AppStrings.enterEmail,
-                    contentPadding: EdgeInsetsDirectional.only(
-                      start: constrain!.maxWidth * 0.025,
-                    ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(10),
+                Container(
+                  decoration: BoxDecoration(
+                    color: AppColor.white,
+                    borderRadius: BorderRadius.circular(15),
+                    boxShadow: [
+                      BoxShadow(
+                        color: AppColor.shadowColor.withOpacity(0.25),
+                        spreadRadius: 2,
+                        blurRadius: 8,
+                        offset: const Offset(2, 2),
+                      ),
+                    ],
+                  ),
+                  child: TextFormField(
+                    textInputAction: TextInputAction.next,
+                    decoration: InputDecoration(
+                      labelText: AppStrings.enterEmail,
+                      contentPadding: EdgeInsetsDirectional.only(
+                        start: constrain!.maxWidth * 0.025,
                       ),
                     ),
+                    onSaved: (newValue) {
+                      name = newValue;
+                    },
                   ),
-                  onSaved: (newValue) {
-                    name = newValue;
-                  },
                 ),
                 SizedBox(height: constrain!.maxHeight * 0.018),
-                TextFormField(
-                  textInputAction: TextInputAction.done,
-                  keyboardType: TextInputType.number,
-                  decoration: InputDecoration(
-                    hintText: AppStrings.enterPhone,
-                    contentPadding: EdgeInsetsDirectional.only(
-                      start: constrain!.maxWidth * 0.025,
-                    ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(10),
+                Container(
+                  decoration: BoxDecoration(
+                    color: AppColor.white,
+                    borderRadius: BorderRadius.circular(15),
+                    boxShadow: [
+                      BoxShadow(
+                        color: AppColor.shadowColor.withOpacity(0.25),
+                        spreadRadius: 2,
+                        blurRadius: 8,
+                        offset: const Offset(2, 2),
+                      ),
+                    ],
+                  ),
+                  child: TextFormField(
+                    textInputAction: TextInputAction.done,
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                      labelText: AppStrings.enterPhone,
+                      contentPadding: EdgeInsetsDirectional.only(
+                        start: constrain!.maxWidth * 0.025,
                       ),
                     ),
+                    onSaved: (newValue) {
+                      phone = newValue;
+                    },
                   ),
-                  onSaved: (newValue) {
-                    phone = newValue;
-                  },
                 ),
                 SizedBox(height: constrain!.maxHeight * 0.0343),
                 PrimaryButton(

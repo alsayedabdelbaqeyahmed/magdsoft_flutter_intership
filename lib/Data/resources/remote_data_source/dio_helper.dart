@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:maged_soft_test/Core/shared/api_constants.dart';
 import 'package:maged_soft_test/Core/shared/constants.dart';
+import 'package:maged_soft_test/Data/models/get_products_models.dart';
 import 'package:maged_soft_test/Data/models/help_model.dart';
 import 'package:maged_soft_test/Data/models/otp_responce_model.dart';
 
@@ -18,6 +19,7 @@ abstract class BaseRemoteDataSource {
   Future<OtpResponceModel> remoteDataGetOtpResponce(
       {String? phone, String? code});
   Future<HelpModel> remoteDataGetHelp();
+  Future<ProductsResponceModel> remoteDataGetProduct();
 }
 
 // implement class
@@ -121,6 +123,33 @@ class RemoteDataDioHelper implements BaseRemoteDataSource {
       );
       if (responce.statusCode == 200) {
         responceData = HelpModel.fromJson(responce.data);
+
+        return responceData;
+      } else {
+        throw UserServerException(
+          loginErrorMessegeNetwork:
+              LoginErrorMessegeNetwork.fromJson(responce.data),
+        );
+      }
+    } on UserServerException catch (e) {
+      throw ServerFailur(errorMessege: e.loginErrorMessegeNetwork!.messege);
+    }
+  }
+
+  // get the products
+  @override
+  Future<ProductsResponceModel> remoteDataGetProduct() async {
+    final ProductsResponceModel responceData;
+    try {
+      dio!.options.headers = {
+        'Content-Type': 'application/json',
+       };
+
+      final responce = await dio!.get(
+        ApiConstants.getProducts,
+      );
+      if (responce.statusCode == 200) {
+        responceData = ProductsResponceModel.fromJson(responce.data);
 
         return responceData;
       } else {

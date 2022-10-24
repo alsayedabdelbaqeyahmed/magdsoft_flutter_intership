@@ -12,10 +12,16 @@ import 'package:intl/intl.dart';
 import 'package:maged_soft_test/Data/resources/remote_data_source/dio_helper.dart';
 import 'package:maged_soft_test/Domain/useCase/post_phone_user_name.dart';
 import 'package:maged_soft_test/Presentation/controller/bloc_observer.dart';
-import 'package:maged_soft_test/Presentation/controller/user_bloc.dart';
-import 'package:maged_soft_test/Presentation/router/app_router.dart';
+import 'package:maged_soft_test/Presentation/controller/product_controller/product_bloc.dart';
+import 'package:maged_soft_test/Presentation/controller/user_controller.dart/user_bloc.dart';
 
-import 'package:maged_soft_test/Presentation/screens/splash/splash.dart';
+import 'package:maged_soft_test/Presentation/router/app_router.dart';
+import 'package:maged_soft_test/Presentation/screens/products/home_screen/home_screen.dart';
+import 'package:maged_soft_test/Presentation/screens/products/home_screen/navigation_bar.dart';
+import 'package:maged_soft_test/Presentation/screens/user/login_screen/login_screen.dart';
+
+import 'package:maged_soft_test/Presentation/screens/user/splash/splash.dart';
+import 'package:maged_soft_test/Presentation/styles/theme.dart';
 import 'package:sizer/sizer.dart';
 
 import 'Presentation/screens/shared_widget/toast.dart';
@@ -77,48 +83,39 @@ class _MyAppState extends State<MyApp> {
     return MultiBlocProvider(
         providers: [
           BlocProvider(
-            /// i do not know how the user will pass to get help page
-            /// i decided to call the api when the user lunch the app so
-            /// i can get the data an show it at the app
-            /// as i missed the button to help page at design
-
             create: (BuildContext ctx) => UserBloc(),
           ),
+          BlocProvider(
+            create: (BuildContext ctx) =>
+                ProductsBloc()..getProductsResponce(context),
+          ),
         ],
-        child: Sizer(
-          builder: (context, orientation, deviceType) {
-            return LocalizedApp(
-              delegate,
-              LayoutBuilder(builder: (context, constraints) {
-                return MaterialApp(
-                  debugShowCheckedModeBanner: false,
-                  title: 'Werash',
-                  localizationsDelegates: [
-                    GlobalCupertinoLocalizations.delegate,
-                    DefaultCupertinoLocalizations.delegate,
-                    GlobalMaterialLocalizations.delegate,
-                    GlobalWidgetsLocalizations.delegate,
-                    delegate,
-                  ],
-                  locale: delegate.currentLocale,
-                  supportedLocales: delegate.supportedLocales,
-                  onGenerateRoute: AppRouter.onGenerateRoute,
-                  theme: ThemeData(
-                    fontFamily: 'Inter',
-                    //scaffoldBackgroundColor: AppColors.white,
-                    appBarTheme: const AppBarTheme(
-                      elevation: 0.0,
-                      systemOverlayStyle: SystemUiOverlayStyle(
-                        //statusBarColor: AppColors.transparent,
-                        statusBarIconBrightness: Brightness.dark,
-                      ),
-                    ),
-                  ),
-                  home: const SplashScreen(),
-                );
-              }),
-            );
-          },
-        ));
+        child: LayoutBuilder(builder: (context, size) {
+          return Sizer(
+            builder: (context, orientation, deviceType) {
+              return LocalizedApp(
+                delegate,
+                LayoutBuilder(builder: (context, constraints) {
+                  return MaterialApp(
+                    debugShowCheckedModeBanner: false,
+                    title: 'Werash',
+                    localizationsDelegates: [
+                      GlobalCupertinoLocalizations.delegate,
+                      DefaultCupertinoLocalizations.delegate,
+                      GlobalMaterialLocalizations.delegate,
+                      GlobalWidgetsLocalizations.delegate,
+                      delegate,
+                    ],
+                    locale: delegate.currentLocale,
+                    supportedLocales: delegate.supportedLocales,
+                    onGenerateRoute: AppRouter.onGenerateRoute,
+                    theme: appThemeManger(size),
+                    home: const NavigationBarScreen(),
+                  );
+                }),
+              );
+            },
+          );
+        }));
   }
 }

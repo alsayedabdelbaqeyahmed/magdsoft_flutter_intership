@@ -2,9 +2,10 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:maged_soft_test/Presentation/controller/user_bloc.dart';
-import 'package:maged_soft_test/Presentation/controller/user_event.dart';
-import 'package:maged_soft_test/Presentation/controller/user_state.dart';
+
+import 'package:maged_soft_test/Presentation/controller/user_controller.dart/user_bloc.dart';
+import 'package:maged_soft_test/Presentation/controller/user_controller.dart/user_state.dart';
+
 import 'package:maged_soft_test/Presentation/screens/user/login_screen/login_screen.dart';
 import 'package:maged_soft_test/Presentation/screens/shared_widget/animated_apge.dart';
 import 'package:maged_soft_test/Presentation/styles/assets.dart';
