@@ -39,7 +39,7 @@ dependencies:
   dartz:
   flutter_bloc:
   bloc:
-  get_it:
+  fluttertoast:
 
 dev_dependencies:
   flutter_test:

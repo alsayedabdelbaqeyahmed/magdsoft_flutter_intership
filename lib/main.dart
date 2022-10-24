@@ -8,6 +8,7 @@ import 'package:maged_soft_test/User_Module/Data/resources/remote_data_source/di
 import 'package:maged_soft_test/User_Module/Domain/useCase/post_phone_user_name.dart';
 import 'package:maged_soft_test/User_Module/Presentation/controller/bloc_observer.dart';
 import 'package:maged_soft_test/User_Module/Presentation/controller/user_bloc.dart';
+import 'package:maged_soft_test/User_Module/Presentation/router/app_router.dart';
 
 import 'package:maged_soft_test/User_Module/Presentation/screens/splash/splash.dart';
 
@@ -33,9 +34,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        /// go to the service locator and find the object you need
         BlocProvider(
-          create: (BuildContext ctx) => UserBloc(),
+          /// i do not know how the user will pass to get help page
+          /// i decided to call the api when the user lunch the app so
+          /// i can get the data an show it at the app
+          /// as i missed the button to help page at design
+
+          create: (BuildContext ctx) => UserBloc()..getHelpResponce(context),
         ),
       ],
       child: MaterialApp(
@@ -45,6 +50,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         home: const SplashScreen(),
+        onGenerateRoute: AppRouter.onGenerateRoute,
       ),
     );
   }

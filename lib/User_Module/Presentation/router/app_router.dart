@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:maged_soft_test/User_Module/Presentation/router/router_constants.dart';
+import 'package:maged_soft_test/User_Module/Presentation/screens/splash/splash.dart';
+import 'package:maged_soft_test/User_Module/Presentation/screens/user/help/help.dart';
+import 'package:maged_soft_test/User_Module/Presentation/screens/user/login_screen/login_screen.dart';
+import 'package:maged_soft_test/User_Module/Presentation/screens/user/verify_screen/verifiy_screen.dart';
 
 class AppRouter {
-  Route? onGenerateRoute(RouteSettings settings) {
+  static Route? onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
-      // case '/':
-      //   return MaterialPageRoute(builder: (_) => const SplashScreen());
-      // case '/login':
-      //   return MaterialPageRoute(builder: (_) => LoginScreen());
+      case AppRouteStrings.splashScreen:
+        return MaterialPageRoute(builder: (_) => const SplashScreen());
+      case AppRouteStrings.login:
+        return MaterialPageRoute(builder: (_) => const LoginScreen());
+      case AppRouteStrings.otp:
+        return MaterialPageRoute(builder: (_) => const VerifyScreen());
+      case AppRouteStrings.help:
+        return MaterialPageRoute(builder: (_) => const HelpScreen());
       default:
         return null;
     }

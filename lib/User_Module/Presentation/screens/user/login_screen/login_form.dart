@@ -66,15 +66,15 @@ class LoginForm extends StatelessWidget {
                 PrimaryButton(
                   text: AppStrings.login,
                   constrain: constrain,
-                  press: () {
+                  press: () async {
                     if (_key.currentState!.validate()) {
                       _key.currentState!.save();
                       blocState.authWithPhone(
-                        User(
-                          userName: name,
-                          phoneNumber: phone,
-                        ),
-                      );
+                          User(
+                            userName: name,
+                            phoneNumber: phone,
+                          ),
+                          context);
                     }
                   },
                   isLogin: true,
