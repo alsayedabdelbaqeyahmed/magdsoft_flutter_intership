@@ -17,4 +17,10 @@ class AppStrings {
   static const String review = 'Review';
   static const String enterEmail = 'Enter Your Full Name';
   static const String enterPhone = 'Enter Your Phone Number';
+  static const String all = 'All';
+  static const String acer = 'Acer';
+  static const String razer = 'Razer';
+  static const String favourtite = 'Favourtite';
+  static const String notification = 'notification';
+  static const String settings = 'settings';
 }

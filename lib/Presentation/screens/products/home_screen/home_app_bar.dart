@@ -16,8 +16,6 @@ class HomeAppBar extends StatelessWidget {
         padding: EdgeInsetsDirectional.only(
           top: size!.maxHeight * 0.0536,
           bottom: size!.maxHeight * 0.0236,
-          start: size!.maxWidth * 0.0462,
-          end: size!.maxWidth * 0.0462,
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

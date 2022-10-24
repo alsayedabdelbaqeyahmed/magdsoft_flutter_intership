@@ -6,6 +6,7 @@ import 'package:maged_soft_test/Presentation/controller/product_controller/produ
 import 'package:maged_soft_test/Presentation/controller/product_controller/product_state.dart';
 import 'package:maged_soft_test/Presentation/styles/assets.dart';
 import 'package:maged_soft_test/Presentation/styles/colors.dart';
+import 'package:maged_soft_test/Presentation/styles/strings.dart';
 
 class NavigationBarScreen extends StatelessWidget {
   const NavigationBarScreen({super.key});
@@ -26,32 +27,36 @@ class NavigationBarScreen extends StatelessWidget {
             type: BottomNavigationBarType.fixed,
             items: const [
               BottomNavigationBarItem(
-                  icon: Image(
-                    image: Svg(AppAssets.nextScreenSvg),
-                    width: 20,
-                    height: 20,
-                  ),
-                  label: 'Home'),
+                icon: Image(
+                  image: Svg(AppAssets.nextScreenSvg),
+                  width: 20,
+                  height: 20,
+                ),
+                label: 'Home',
+              ),
               BottomNavigationBarItem(
-                  icon: Image(
-                    image: Svg(AppAssets.favourite),
-                    width: 20,
-                    height: 20,
-                  ),
-                  label: 'Favourite'),
+                icon: Image(
+                  image: Svg(AppAssets.favourite),
+                  width: 20,
+                  height: 20,
+                ),
+                label: AppStrings.favourtite,
+              ),
               BottomNavigationBarItem(
-                  icon: Image(
-                    image: Svg(AppAssets.notification),
-                    width: 20,
-                    height: 20,
-                  ),
-                  label: 'Notification'),
+                icon: Image(
+                  image: Svg(AppAssets.notification),
+                  width: 20,
+                  height: 20,
+                ),
+                label: AppStrings.notification,
+              ),
               BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.settings,
-                    color: AppColor.iconColor,
-                  ),
-                  label: 'Settings'),
+                icon: Icon(
+                  Icons.settings,
+                  color: AppColor.iconColor,
+                ),
+                label: AppStrings.settings,
+              ),
             ],
           ),
         );
