@@ -17,4 +17,9 @@ class AppAssets {
   static const String favourite = 'assets/svg/favourite.svg';
   static const String notification = 'assets/svg/notification.svg';
   static const String settings = 'assets/svg/settings.svg';
+  static const String lable = 'assets/svg/lable.svg';
+  static const String homeBack = 'assets/images/homeScreenBack.png';
+  static const String acerLogog = 'assets/images/acer_logo.png';
+  static const String razerLogo = 'assets/images/Razer-Logo 2.png';
+  static const String trophy = 'assets/images/trophy.png';
 }

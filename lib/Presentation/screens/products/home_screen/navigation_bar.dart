@@ -17,33 +17,7 @@ class NavigationBarScreen extends StatelessWidget {
       builder: (ctx, state) {
         final blocState = ProductsBloc.get(ctx);
         return Scaffold(
-          /// when th current index is not equal to i at MapEntry
-          /// the screen will appear while the other screen will be limited
-          /// without lose their navigation information
-          /// so when we come back it will rebuild with the same info i leave at it
-          body: Stack(
-            children: blocState.screens
-
-                /// convert the list to map
-                .asMap()
-                .map(
-                  /// then take every element at the map and
-                  /// apply the MapEntry on it
-                  /// screen refere to every screen at the list
-                  (i, screen) => MapEntry(
-                    i,
-
-                    /// Offstage is a widget used to off all the screen that
-                    /// the consition is not applyed for it
-                    Offstage(
-                      offstage: blocState.currentIndex != i,
-                      child: screen,
-                    ),
-                  ),
-                )
-                .values
-                .toList(),
-          ),
+          body: blocState.screens[blocState.currentIndex!],
           bottomNavigationBar: BottomNavigationBar(
             currentIndex: blocState.currentIndex!,
             onTap: (value) {

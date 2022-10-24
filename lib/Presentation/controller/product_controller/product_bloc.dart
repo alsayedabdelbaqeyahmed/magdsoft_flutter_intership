@@ -48,6 +48,7 @@ class ProductsBloc extends Bloc<GetProductsEvents, GetProductsState> {
       ),
     )
   ];
+  List<>
 
   int? currentIndex = 0;
   void changeIndex(int index) {
