@@ -21,6 +21,12 @@ abstract class BaseRemoteDataSource {
 
 // implement class
 class RemoteDataDioHelper implements BaseRemoteDataSource {
+// create a single tone object
+  RemoteDataDioHelper._instance();
+  static final RemoteDataDioHelper _remoteDataSource =
+      RemoteDataDioHelper._instance();
+  factory RemoteDataDioHelper() => _remoteDataSource;
+
   // inititalize Dio package with base url
   static Dio? dio;
 

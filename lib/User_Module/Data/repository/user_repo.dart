@@ -14,10 +14,16 @@ import 'package:maged_soft_test/User_Module/Domain/reposotitiry/base_user_repo.d
 
 // implement class of base repository contract
 class VerifyUserRepo implements BaseVerifyUserRepo {
-  // call data source
-  final BaseRemoteDataSource baseSendVerifyRequest;
+// create a single tone object
 
-  VerifyUserRepo(this.baseSendVerifyRequest);
+  VerifyUserRepo._instance();
+  static final VerifyUserRepo _verifyUserRepo = VerifyUserRepo._instance();
+
+  factory VerifyUserRepo() => _verifyUserRepo;
+
+  // call data source
+  final BaseRemoteDataSource baseSendVerifyRequest = RemoteDataDioHelper();
+
   // with Either right mean sucess and left mean failue
   @override
   Future<Either<Failur, UserResponce>> verifyUserPhone({User? userInfo}) async {

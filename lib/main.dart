@@ -1,28 +1,28 @@
-// ignore_for_file: unused_local_variable
+// ignore_for_file: unused_local_variable, deprecated_member_use
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:maged_soft_test/User_Module/Data/repository/user_repo.dart';
-import 'package:maged_soft_test/User_Module/Data/resources/remote_data_source/dio_helper.dart';
-import 'package:maged_soft_test/User_Module/Domain/entities/help.dart';
-import 'package:maged_soft_test/User_Module/Domain/entities/otp_responce.dart';
-import 'package:maged_soft_test/User_Module/Domain/entities/user_response.dart';
-import 'package:maged_soft_test/User_Module/Domain/entities/user.dart';
-import 'package:maged_soft_test/User_Module/Domain/reposotitiry/base_user_repo.dart';
-import 'package:maged_soft_test/User_Module/Domain/useCase/get_help.dart';
-import 'package:maged_soft_test/User_Module/Domain/useCase/get_otp_code.dart';
-import 'package:maged_soft_test/User_Module/Domain/useCase/post_phone_user_name.dart';
-import 'package:maged_soft_test/User_Module/Presentation/screens/splash/splash.dart';
-import 'package:maged_soft_test/User_Module/Presentation/screens/user/help/help.dart';
 
-void main() async {
-  RemoteDataDioHelper.init();
-  // BaseRemoteDataSource baseRemoteDataSource = RemoteDataDioHelper();
-  // BaseVerifyUserRepo baseVerifyUserRepo = VerifyUserRepo(baseRemoteDataSource);
-  // final userResponce = PostPhoneNumberAndUserName(baseVerifyUserRepo)
-  //     .useCaseSendPhoneAndUserName(
-  //         userInfo: User(phoneNumber: '01111111111', userName: 'Ali Khaled'));
-  // print('the responce is $userResponce');
-  runApp(const MyApp());
+import 'package:maged_soft_test/User_Module/Data/resources/remote_data_source/dio_helper.dart';
+import 'package:maged_soft_test/User_Module/Domain/useCase/post_phone_user_name.dart';
+import 'package:maged_soft_test/User_Module/Presentation/controller/bloc_observer.dart';
+import 'package:maged_soft_test/User_Module/Presentation/controller/user_bloc.dart';
+
+import 'package:maged_soft_test/User_Module/Presentation/screens/splash/splash.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  BlocOverrides.runZoned(
+    () async {
+      RemoteDataDioHelper.init();
+      final remote = RemoteDataDioHelper();
+      print(VerifyUserRepo().hashCode);
+
+      runApp(const MyApp());
+    },
+    blocObserver: MyBlocObserver(),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -31,13 +31,21 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return MultiBlocProvider(
+      providers: [
+        /// go to the service locator and find the object you need
+        BlocProvider(
+          create: (BuildContext ctx) => UserBloc(),
+        ),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: const SplashScreen(),
       ),
-      home: const HelpScreen(),
     );
   }
 }

@@ -1,15 +1,23 @@
 import 'package:dartz/dartz.dart';
 import 'package:maged_soft_test/User_Module/Data/network/failur/failur.dart';
+import 'package:maged_soft_test/User_Module/Data/repository/user_repo.dart';
+import 'package:maged_soft_test/User_Module/Data/resources/remote_data_source/dio_helper.dart';
 import 'package:maged_soft_test/User_Module/Domain/entities/otp_responce.dart';
 import 'package:maged_soft_test/User_Module/Domain/entities/user_response.dart';
 import 'package:maged_soft_test/User_Module/Domain/entities/user.dart';
 import 'package:maged_soft_test/User_Module/Domain/reposotitiry/base_user_repo.dart';
 
 class PostPhoneNumberAndUserName {
-  // from abstract repository create a object
-  final BaseVerifyUserRepo verifyUser;
+  /// creaye a single tone object
+  PostPhoneNumberAndUserName._instance();
+  static final PostPhoneNumberAndUserName _postPhoneAndUser =
+      PostPhoneNumberAndUserName._instance();
+  factory PostPhoneNumberAndUserName() => _postPhoneAndUser;
 
-  PostPhoneNumberAndUserName(this.verifyUser);
+  // from abstract repository create a object
+
+  final BaseVerifyUserRepo? verifyUser = VerifyUserRepo();
+
 // ignore: slash_for_doc_comments
 /**
  * the use case connect and collect data from prensenation and connect to entity and repositiry
@@ -17,6 +25,10 @@ class PostPhoneNumberAndUserName {
  */
   Future<Either<Failur, UserResponce>> useCaseSendPhoneAndUserName(
       {User? userInfo}) async {
-    return await verifyUser.verifyUserPhone(userInfo: userInfo);
+    print(VerifyUserRepo().hashCode);
+    final result = PostPhoneNumberAndUserName()
+        .verifyUser!
+        .verifyUserPhone(userInfo: userInfo);
+    return result;
   }
 }
